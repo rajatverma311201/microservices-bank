@@ -19,5 +19,4 @@ public class AccountMapper {
         accounts.setBranchAddress(accountsDto.getBranchAddress());
         return accounts;
     }
-
 }
