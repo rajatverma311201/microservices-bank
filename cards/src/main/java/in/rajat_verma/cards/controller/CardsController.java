@@ -32,6 +32,13 @@ public class CardsController {
 
     private CardsService cardsService;
 
+
+    @GetMapping("/hello")
+    public ResponseEntity<ResponseDto> hello() {
+        return ResponseEntity.status(HttpStatus.OK).body(new ResponseDto(CardsConstants.STATUS_200, "HELLO WORLD CARDS"));
+    }
+
+
     @Operation(
             summary = "Create Card REST API",
             description = "REST API to create new Card inside EazyBank"
@@ -156,5 +163,6 @@ public class CardsController {
                     .body(new ResponseDto(CardsConstants.STATUS_417, CardsConstants.MESSAGE_417_DELETE));
         }
     }
+
 
 }

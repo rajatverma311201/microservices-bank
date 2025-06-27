@@ -80,12 +80,12 @@ public class AccountsServiceImpl implements AccountsService {
     @Override
     public boolean updateAccount(CustomerDto customerDto) {
         boolean isUpdated = false;
-        AccountDto accountsDto = customerDto.getAccountDto();
-        if (accountsDto != null) {
-            Account account = accountsRepository.findById(accountsDto.getAccountNumber()).orElseThrow(
-                    () -> new ResourceNotFoundException("Account", "AccountNumber", accountsDto.getAccountNumber().toString())
+        AccountDto accountDto = customerDto.getAccountDto();
+        if (accountDto != null) {
+            Account account = accountsRepository.findById(accountDto.getAccountNumber()).orElseThrow(
+                    () -> new ResourceNotFoundException("Account", "AccountNumber", accountDto.getAccountNumber().toString())
             );
-            AccountMapper.mapToAccount(accountsDto, account);
+            AccountMapper.mapToAccount(accountDto, account);
             account = accountsRepository.save(account);
 
             Long customerId = account.getCustomerId();
