@@ -17,8 +17,30 @@ spring:
   config:
     import: "optional:configserver:http://localhost:8071/"
 
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    env:
+      enabled: true
+  endpoint:
+    shutdown:
+      access: unrestricted
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: "http://localhost:8070/eureka/"
+
+info:
+  app:
+    name: "loans"
+    description: "Bank Loans Application Microservice"
+    version: "1.0.0"

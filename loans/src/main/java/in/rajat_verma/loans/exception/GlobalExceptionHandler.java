@@ -1,8 +1,8 @@
 package in.rajat_verma.loans.exception;
 
-import in.rajat_verma.cards.dto.ErrorResponseDto;
-import in.rajat_verma.cards.exception.CardAlreadyExistsException;
-import in.rajat_verma.cards.exception.ResourceNotFoundException;
+import in.rajat_verma.loans.dto.ErrorResponseDto;
+import in.rajat_verma.loans.exception.LoanAlreadyExistsException;
+import in.rajat_verma.loans.exception.ResourceNotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -58,8 +58,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorResponseDTO, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(CardAlreadyExistsException.class)
-    public ResponseEntity<ErrorResponseDto> handleCardAlreadyExistsException(CardAlreadyExistsException exception, WebRequest webRequest) {
+    @ExceptionHandler(LoanAlreadyExistsException.class)
+    public ResponseEntity<ErrorResponseDto> handleLoanAlreadyExistsException(LoanAlreadyExistsException exception, WebRequest webRequest) {
         ErrorResponseDto errorResponseDTO = new ErrorResponseDto(
                 webRequest.getDescription(false),
                 HttpStatus.BAD_REQUEST,

@@ -1,5 +1,6 @@
 package in.rajat_verma.accounts.mapper;
 
+import in.rajat_verma.accounts.dto.CustomerDetailsDto;
 import in.rajat_verma.accounts.dto.CustomerDto;
 import in.rajat_verma.accounts.entity.Customer;
 
@@ -18,5 +19,14 @@ public class CustomerMapper {
         customer.setMobileNumber(customerDto.getMobileNumber());
         return customer;
     }
+
+
+    public static CustomerDetailsDto mapToCustomerDetailsDto(Customer customer, CustomerDetailsDto customerDetailsDto) {
+        customerDetailsDto.setName(customer.getName());
+        customerDetailsDto.setEmail(customer.getEmail());
+        customerDetailsDto.setMobileNumber(customer.getMobileNumber());
+        return customerDetailsDto;
+    }
+
 
 }
