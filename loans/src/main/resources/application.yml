@@ -6,11 +6,24 @@ spring:
   profiles:
     active: "prod"
   datasource:
-    url: jdbc:mysql://localhost:3307/loansdb
+    #    url: jdbc:mysql://localhost:3307/loansdb
+    #    url: "jdbc:h2:mem:loans"
+    url: "jdbc:h2:file:./data/loansdb"
+    driver-class-name: org.h2.Driver
     username: root
     password: root
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.H2Dialect
+
   sql:
     init:
       mode: always

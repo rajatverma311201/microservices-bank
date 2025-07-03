@@ -9,7 +9,9 @@ spring:
         webflux:
           discovery:
             locator:
-              enabled: true
+              enabled: false
+              lower-case-service-id: true
+
 
 management:
   endpoints:
